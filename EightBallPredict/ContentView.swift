@@ -32,37 +32,68 @@ struct ContentView: View {
     var body: some View {
         
         
-        VStack {
+        ZStack{
             
-            Spacer()
+            VStack {
+                
+                Text("My magic 8 ball")
+                    .font(.largeTitle)
+                    .foregroundStyle(.black)
+                
+                Spacer()
+                
+                ZStack{
+                    
+                    
+                    
+                    Image("background-wood-grain")
+                        .resizable()
+                        .ignoresSafeArea()
+                    
+                    Image("predict-ball-image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 350, height: 350)
+                    
+                    Circle()
+                        .frame(width: 140, height: 140)
+                        .foregroundStyle(.indigo)
+                        .offset(y: -20)
+                    
+                    Text(prediction)
+                        .font(.largeTitle)
+                        .minimumScaleFactor(0.4)
+                        .foregroundStyle(.white)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 100, height: 100)
+                        .offset(y: -20)
+                        .animation(.default, value: prediction)
+                        
+                    
+                }
+                
             
-            Image("predict-ball-image")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 350, height: 350)
+                Spacer()
+                    
+                Button("Predict") {
+                    prediction = choicesArray.randomElement() ?? "empty array"
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.indigo)
+                .font(.title2)
                 
-            Text(prediction)
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-                .frame(height: 120)
-                .animation(.default, value: prediction)
-            
-            Spacer()
-                
-            Button("Predict") {
-                prediction = choicesArray.randomElement() ?? "empty array"
-                
+             
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.indigo)
-            .font(.title2)
-            
-         
+            .padding()
         }
-        .padding()
     }
-}
 
+            
+        }
+        
+        
+        
 #Preview {
     ContentView()
 }
