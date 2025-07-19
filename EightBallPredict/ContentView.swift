@@ -12,22 +12,29 @@ struct ContentView: View {
         
         
         VStack {
-            Image(systemName: "record.circle.fill")
+            
+            Spacer()
+            
+            Image("predict-ball-image")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 350 , height: 350)
+                .frame(width: 350, height: 350)
                 
             Text(prediction)
                 .font(.largeTitle)
                 .frame(height: 120)
             
+            Spacer()
+                
             Button("Predict") {
-            prediction = "Awesomness is on it's way"
+                prediction = "Awesomness is on it's way!"
+                
             }
-            buttonStyle(.borderedProminent)
-                .tint(.indigo)
-                .font(.title2)
+            .buttonStyle(.borderedProminent)
+            .tint(.indigo)
+            .font(.title2)
             
+         
         }
         .padding()
     }
