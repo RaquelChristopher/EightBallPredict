@@ -34,26 +34,29 @@ struct ContentView: View {
         
         ZStack{
             
+            Image("background-wood-grain")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
             VStack {
+                
+                Spacer()
                 
                 Text("My magic 8 ball")
                     .font(.largeTitle)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
                 ZStack{
-                    
-                    
-                    
-                    Image("background-wood-grain")
-                        .resizable()
-                        .ignoresSafeArea()
+                  
                     
                     Image("predict-ball-image")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 350, height: 350)
+                        
                     
                     Circle()
                         .frame(width: 140, height: 140)
@@ -79,9 +82,12 @@ struct ContentView: View {
                     prediction = choicesArray.randomElement() ?? "empty array"
                     
                 }
+                .padding()
                 .buttonStyle(.borderedProminent)
                 .tint(.indigo)
                 .font(.title2)
+                
+                Spacer()
                 
              
             }
