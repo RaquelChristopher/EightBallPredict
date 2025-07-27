@@ -34,7 +34,7 @@ struct ContentView: View {
         
         ZStack{
             
-            Image("background-wood-grain")
+            Image("backgroundEightBallBlue")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
